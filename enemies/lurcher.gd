@@ -1,10 +1,10 @@
 extends CharacterBody2D
 
-const SPEED = 30.0
+const SPEED = 20.0
 const EPSILON = 10
-const DASH_IF = 40
-const DASH_DISTANCE = 48
-const DASHING_FRAMES = 30
+const DASH_IF = 70
+const DASH_DISTANCE = 64
+const DASHING_FRAMES = 45
 var angle = 0
 var normal = Vector2(1, 0)
 var dashing_frame = 0
