@@ -5,7 +5,7 @@ repos:
     -   id: end-of-file-fixer
     -   id: trailing-whitespace
 -   repo: https://github.com/Scony/godot-gdscript-toolkit/
-    rev: 4.2.2
+    rev: e3c37fa54fb32ad99b0bceb2f17e7bc1ffd99806
     hooks:
     - id: gdlint
     - id: gdformat

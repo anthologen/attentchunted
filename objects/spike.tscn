@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cekf2sxpymm28"]
+
+[ext_resource type="Script" path="res://objects/spike.gd" id="1_rgdun"]
+[ext_resource type="Texture2D" uid="uid://ccedbyxjd4hna" path="res://assets/sprites/spike.png" id="2_vaja2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oc1d2"]
+radius = 7.0
+
+[node name="spike" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_rgdun")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_vaja2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_oc1d2")
