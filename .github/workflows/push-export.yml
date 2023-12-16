@@ -106,6 +106,7 @@ jobs:
       # Workaround for SharedArrayBuffer support on GitHub Pages
       # See: https://github.com/godotengine/godot-docs/issues/7084
       - name: SharedArrayBuffer workaround
+        if: false # this workaround allows browser to start loading game but then hangs
         run: |
           cd builds/web
           curl -fsSL https://github.com/gzuidhof/coi-serviceworker/raw/master/coi-serviceworker.js > coi-serviceworker.js
