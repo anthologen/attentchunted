@@ -1,3 +1,14 @@
+# Attentchunted
+
+## pre-commit setup
+- install godot 4.2.1
+- install python3
+- `pip3 install --user pre-commit gdtoolkit`
+- `pre-commit install`
+
+## Publish Note
+GitHub Actions automatically builds and publishes a copy of the game [https://anthologen.github.io/attentchunted]()
+
 ![game-template-overview](https://user-images.githubusercontent.com/6860637/101258948-24c35c80-3726-11eb-8c64-7a201e945f73.png)
 
 > 🌟 You make games, the template handles the boring stuff.
