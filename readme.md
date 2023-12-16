@@ -6,8 +6,10 @@
 - `pip3 install --user pre-commit gdtoolkit`
 - `pre-commit install`
 
-## Publish Note
-GitHub Actions automatically builds and publishes a copy of the game [https://anthologen.github.io/attentchunted]()
+## Export Note
+GitHub Actions automatically builds and exports a playable copy of the game to https://anthologen.github.io/attentchunted upon merging into the main branch. However, due to an [open issue](https://github.com/godotengine/godot-proposals/issues/6616) with Godot 4 web builds, it is not compatible with Github Pages so the final product will need to be distributed elsewhere.
+
+# --- Project Template ---
 
 ![game-template-overview](https://user-images.githubusercontent.com/6860637/101258948-24c35c80-3726-11eb-8c64-7a201e945f73.png)
 
