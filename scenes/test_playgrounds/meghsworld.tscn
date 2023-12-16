@@ -29,6 +29,7 @@ position = Vector2(104, 58)
 [node name="Camera2D" type="Camera2D" parent="player"]
 position = Vector2(-104, -58)
 anchor_mode = 0
+zoom = Vector2(3, 3)
 
 [node name="hud" type="Node2D" parent="player/Camera2D"]
 
