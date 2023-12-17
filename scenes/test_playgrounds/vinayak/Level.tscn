@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://o5tk6ith1nv5"]
+[gd_scene load_steps=14 format=3 uid="uid://o5tk6ith1nv5"]
 
 [ext_resource type="PackedScene" uid="uid://iy22uv6sg6r6" path="res://scenes/test_playgrounds/vinayak/player.tscn" id="1_d64q7"]
 [ext_resource type="Texture2D" uid="uid://62kw3v7ioeoq" path="res://assets/kenney_tower-defense-top-down/Tilesheet/towerDefense_tilesheet.png" id="2_uemoc"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://d2pckogc618ia" path="res://assets/kenney_tower-defense-top-down/PNG/Retina/towerDefense_tile131.png" id="4_iqs8f"]
 [ext_resource type="Texture2D" uid="uid://doy5mkwhorgfj" path="res://assets/kenney_tower-defense-top-down/PNG/Retina/towerDefense_tile132.png" id="5_ubkww"]
 [ext_resource type="Texture2D" uid="uid://dfk3nd0koi8fx" path="res://assets/kenney_tower-defense-top-down/PNG/Retina/towerDefense_tile093.png" id="6_nl05m"]
+[ext_resource type="PackedScene" uid="uid://biypiybpg31wq" path="res://enemies/lurcher.tscn" id="7_y860a"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ygfo5"]
 resource_name = "FullTileMap"
@@ -13145,3 +13146,12 @@ layer_2/tile_data = PackedInt32Array(-393143, 1, 0, -393137, 1, 0, -262058, 1, 0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(549, 279)
+
+[node name="enemy1" parent="." instance=ExtResource("7_y860a")]
+position = Vector2(421, 872)
+
+[node name="enemy2" parent="." instance=ExtResource("7_y860a")]
+position = Vector2(1131, 1082)
+
+[node name="enemy3" parent="." instance=ExtResource("7_y860a")]
+position = Vector2(1621, 1087)
