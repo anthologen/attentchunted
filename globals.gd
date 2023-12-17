@@ -10,7 +10,7 @@ var graves: Array[Vector2i]
 var enemy_count = 0
 
 var levels = [
-	"res://scenes/test_playgrounds/meghsworld.tscn",
+	# "res://scenes/test_playgrounds/meghsworld.tscn",
 	"res://scenes/test_playgrounds/vinayak/Level.tscn",
 ]
 var current_level = 0
