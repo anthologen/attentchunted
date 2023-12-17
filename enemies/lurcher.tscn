@@ -1,20 +1,19 @@
 [gd_scene load_steps=4 format=3 uid="uid://biypiybpg31wq"]
 
-[ext_resource type="TileSet" uid="uid://7qaa7oh70l8y" path="res://tiles.tres" id="1_2bv46"]
 [ext_resource type="Script" path="res://enemies/lurcher.gd" id="1_4tx6r"]
+[ext_resource type="Texture2D" uid="uid://qqw540bf8g8m" path="res://assets/sprites/insta.png" id="2_ijqeh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qn3mo"]
-radius = 7.0
+radius = 44.0
 
 [node name="lurcher" type="CharacterBody2D"]
 collision_layer = 3
 script = ExtResource("1_4tx6r")
 
-[node name="TileMap" type="TileMap" parent="."]
-position = Vector2(-8, -8)
-tile_set = ExtResource("1_2bv46")
-format = 2
-layer_0/tile_data = PackedInt32Array(0, 1900544, 6)
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(9.33937, 1.5)
+scale = Vector2(0.384615, 0.384615)
+texture = ExtResource("2_ijqeh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_qn3mo")
