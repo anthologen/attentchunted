@@ -2,11 +2,13 @@ extends CharacterBody2D
 
 const SPIKE_SCENE = preload("res://objects/spike.tscn")
 
-const SPEED = 100.0
+const MAX_SPEED = 100.0
+const MIN_SPEED = 0.0
 const EPSILON = 10
 const DASH_DISTANCE = 48
 const DASHING_FRAMES = 10
 
+var speed = MAX_SPEED
 var angle = 0
 var normal = Vector2(1, 0)
 var dashing_frame = 0
@@ -20,19 +22,20 @@ func _ready():
 	G.tilemap = get_parent().get_node("TileMap")
 	G.camera = get_node("Camera2D")
 	G.player = self
+	$Timer.start()
 
 
 func _physics_process(_delta):
 	var direction_x = Input.get_axis("move_left", "move_right")
 	var direction_y = Input.get_axis("move_up", "move_down")
 	if direction_x:
-		velocity.x = direction_x * SPEED
+		velocity.x = direction_x * speed
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, speed)
 	if direction_y:
-		velocity.y = direction_y * SPEED
+		velocity.y = direction_y * speed
 	else:
-		velocity.y = move_toward(velocity.y, 0, SPEED)
+		velocity.y = move_toward(velocity.y, 0, speed)
 	if velocity.y or velocity.x:
 		angle = velocity.angle()
 		$Pointer.rotation = angle + PI / 2
@@ -68,8 +71,16 @@ func is_dashing():
 	return dashing_frame != 0
 
 
+func apply_speed_debuff():
+	var speed_debuff = 10  # TODO: get from bullet type
+	speed = max(speed - speed_debuff, MIN_SPEED)
+
+
 func handle_collision(object):
 	if object.is_in_group("enemy"):
+		object.queue_free()
+	elif object.is_in_group("bullet"):
+		apply_speed_debuff()
 		object.queue_free()
 
 
@@ -81,3 +92,12 @@ func fire_spike(dir):
 	$Scythe.rotation_degrees = -scything_positive * 15
 	scything_frame = 10
 	G.spikes.add_child(spike)
+
+
+func passive_speed_regen():
+	var speed_regen_rate = 10  # TODO: alter via power-up?
+	speed = min(speed + speed_regen_rate, MAX_SPEED)
+
+
+func _on_timer_timeout():
+	passive_speed_regen()

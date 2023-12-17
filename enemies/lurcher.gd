@@ -1,10 +1,12 @@
 extends CharacterBody2D
 
-const SPEED = 20.0
+const Bullet = preload("res://bullet/bullet.tscn")
+
+const SPEED = 10.0
 const EPSILON = 10
-const DASH_IF = 70
-const DASH_DISTANCE = 64
-const DASHING_FRAMES = 45
+const DASH_IF = 20
+const DASH_DISTANCE = 32
+const DASHING_FRAMES = 20
 var angle = 0
 var normal = Vector2(1, 0)
 var dashing_frame = 0
@@ -14,6 +16,8 @@ func _ready():
 	add_to_group("enemy")
 	add_to_group("enemy/lurcher")
 	G.enemy_count += 1
+	var timer = $Timer
+	timer.start()
 
 
 func _exit_tree():
@@ -47,3 +51,18 @@ func handle_collisions():
 		var col = get_slide_collision(c)
 		if col.get_collider() == G.player:
 			G.player.handle_collision(self)
+
+
+func shoot_at_player():
+	if not G.player:
+		return
+	normal = global_position.direction_to(G.player.global_position)
+
+	var bullet = Bullet.instantiate()
+	bullet.position = position
+	bullet.direction = normal
+	get_parent().add_child(bullet)
+
+
+func _on_timer_timeout():
+	shoot_at_player()
