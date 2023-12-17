@@ -58,8 +58,9 @@ func shoot_at_player():
 		return
 	normal = global_position.direction_to(G.player.global_position)
 
+	print("here", position, normal)
 	var bullet = Bullet.instantiate()
-	bullet.position = position
+	bullet.position = position + normal * 80
 	bullet.direction = normal
 	get_parent().add_child(bullet)
 

@@ -6,6 +6,10 @@ var direction = Vector2(0, -1)  # Initial direction (upward)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if direction.x < 0:
+		$Sprite2D.flip_h = true
+	if direction.y > 0:
+		$Sprite2D.flip_v = true
 	add_to_group("bullet")
 
 
@@ -15,5 +19,6 @@ func _process(delta):
 	position += direction * speed * delta
 
 	# Destroy the bullet when it goes off-screen
-	if not get_viewport_rect().has_point(position):
-		queue_free()
+	#if not get_viewport_rect().has_point(position):
+	#print("deleted")
+	#queue_free()
