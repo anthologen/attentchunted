@@ -1,11 +1,10 @@
 extends CharacterBody2D
 
-const MAX_SPEED = 100.0
+const MAX_SPEED = 150.0
 const MIN_SPEED = 0.0
 
 @export var starting_direction: Vector2 = Vector2(0, 1)
 @export var speed = MAX_SPEED
-@export var health = 50
 
 @onready var animation_tree = $AnimationTree
 @onready var sprite = $Sprite2D
@@ -20,6 +19,8 @@ func _ready():
 
 
 func _physics_process(_delta):
+	if speed == 0:
+		get_tree().paused = true
 	var input_direction = Vector2(
 		Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
 		Input.get_action_raw_strength("move_down") - Input.get_action_strength("move_up")
@@ -65,7 +66,7 @@ func apply_speed_debuff():
 
 
 func passive_speed_regen():
-	var speed_regen_rate = 10  # TODO: alter via power-up?
+	var speed_regen_rate = 1  # TODO: alter via power-up?
 	speed = min(speed + speed_regen_rate, MAX_SPEED)
 
 

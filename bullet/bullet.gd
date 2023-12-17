@@ -24,7 +24,7 @@ func _process(delta):
 	#queue_free()
 
 
-func _on_body_entered(_body):
-	G.player.health -= 1
-	G.player.apply_speed_debuff()
+func _on_body_entered(body):
+	if body == G.player:
+		G.player.apply_speed_debuff()
 	queue_free()
