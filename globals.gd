@@ -12,5 +12,6 @@ var enemy_count = 0
 var levels = [
 	# "res://scenes/test_playgrounds/meghsworld.tscn",
 	"res://scenes/test_playgrounds/vinayak/Level.tscn",
+	"res://scenes/gameover.tscn",
 ]
 var current_level = 0
