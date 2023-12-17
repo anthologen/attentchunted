@@ -1,16 +1,20 @@
 extends CharacterBody2D
 
-@export var move_speed : float = 100
 @export var starting_direction : Vector2 = Vector2(0, 1)
 
 @onready var animation_tree = $AnimationTree
 @onready var sprite = $Sprite2D
 @onready var state_machine = animation_tree.get("parameters/playback")
 
+const MAX_SPEED = 100.0
+const MIN_SPEED = 0.0
+@export var speed = MAX_SPEED
+
 func _ready():
 	G.player = self
 	update_animation_parameters(starting_direction)
 	animation_tree.set("parameters/Walk/blend_position", starting_direction)
+	$Timer.start()
 
 func _physics_process(delta):
 	var input_direction = Vector2(
@@ -25,10 +29,9 @@ func _physics_process(delta):
 	else:
 		sprite.flip_h = false
 	
-	velocity = input_direction * move_speed
+	velocity = input_direction * speed
 	
 	move_and_slide()
-	
 	pick_new_state()
 
 func update_animation_parameters(move_input : Vector2):
@@ -40,3 +43,22 @@ func pick_new_state():
 		state_machine.travel("Walk")
 	else:
 		state_machine.travel("idle")
+		
+func handle_collision(object):
+	print("player collision called")
+	if object.is_in_group("enemy"):
+		object.queue_free()
+	elif object.is_in_group("bullet"):
+		apply_speed_debuff()
+		object.queue_free()	
+	
+func apply_speed_debuff():
+	var speed_debuff = 10  # TODO: get from bullet type
+	speed = max(speed - speed_debuff, MIN_SPEED)
+	
+func passive_speed_regen():
+	var speed_regen_rate = 10  # TODO: alter via power-up?
+	speed = min(speed + speed_regen_rate, MAX_SPEED)
+
+func _on_timer_timeout():
+	passive_speed_regen()
