@@ -17,11 +17,11 @@ GitHub Actions automatically builds and exports a playable copy of the game to h
 
 <p>
   <a href="https://godotengine.org/download">
-    <img alt="Godot Download badge" src="https://img.shields.io/badge/godot-4.1-blue">
+	<img alt="Godot Download badge" src="https://img.shields.io/badge/godot-4.1-blue">
   </a>
 
   <a href="https://github.com/crystal-bit/godot-game-template/releases">
-    <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/crystal-bit/godot-game-template">
+	<img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/crystal-bit/godot-game-template">
   </a>
 </p>
 
@@ -176,19 +176,19 @@ Look inside the ./builds/ directory:
 ```sh
 builds
 └── MyGameName
-    ├── html5
-    │   ├── build.log # an export log + build datetime and git hash
-    │   ├── index.html
-    │   ├── ...
-    ├── linux
-    │   ├── MyGameName.x86_64
-    │   └── build.log
-    ├── osx
-    │   ├── MyGameName.dmg
-    │   └── build.log
-    └── windows
-        ├── MyGameName.exe
-        └── build.log
+	├── html5
+	│   ├── build.log # an export log + build datetime and git hash
+	│   ├── index.html
+	│   ├── ...
+	├── linux
+	│   ├── MyGameName.x86_64
+	│   └── build.log
+	├── osx
+	│   ├── MyGameName.dmg
+	│   └── build.log
+	└── windows
+		├── MyGameName.exe
+		└── build.log
 ```
 
 ## Github Actions

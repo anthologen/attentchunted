@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://iy22uv6sg6r6"]
+
+[ext_resource type="Texture2D" uid="uid://b6iiokutpapqr" path="res://assets/kenney_toon-characters-1/Male adventurer/Tilesheet/character_maleAdventurer_sheet.png" id="1_503wi"]
+[ext_resource type="Script" path="res://scenes/test_playgrounds/vinayak/player.gd" id="1_elwdq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_esoif"]
+radius = 26.0
+height = 98.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_elwdq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_503wi")
+hframes = 9
+vframes = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 16)
+shape = SubResource("CapsuleShape2D_esoif")
