@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cu1kisqq0ifmo"]
+[gd_scene load_steps=6 format=3 uid="uid://cu1kisqq0ifmo"]
 
 [ext_resource type="Script" path="res://scenes/test_playgrounds/meghsworld.gd" id="1_glxmt"]
 [ext_resource type="TileSet" uid="uid://7qaa7oh70l8y" path="res://tiles.tres" id="2_6ol0p"]
 [ext_resource type="PackedScene" uid="uid://biypiybpg31wq" path="res://enemies/lurcher.tscn" id="3_jo605"]
 [ext_resource type="PackedScene" uid="uid://c6busflyft8bb" path="res://player.tscn" id="4_52sjv"]
+[ext_resource type="PackedScene" uid="uid://dgvuoahjsbfi2" path="res://objects/level_exit.tscn" id="5_cuk7f"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_glxmt")
@@ -41,3 +42,6 @@ layer_0/tile_data = PackedInt32Array(1, 2555904, 10, 2, 2555904, 10, 3, 2555904,
 [node name="spikes" type="Node2D" parent="."]
 
 [node name="enemies" type="Node2D" parent="."]
+
+[node name="LevelExit" parent="." instance=ExtResource("5_cuk7f")]
+position = Vector2(158, 108)
