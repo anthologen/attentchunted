@@ -39,9 +39,9 @@ tracks/0/keys = {
 "values": [0]
 }
 
-[sub_resource type="Animation" id="Animation_ihjip"]
-resource_name = "walk_right"
-length = 0.7
+[sub_resource type="Animation" id="Animation_rc0bo"]
+resource_name = "walk_down"
+length = 0.4
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -50,10 +50,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [36, 37, 38, 39, 40, 41, 43]
+"values": [12, 13]
 }
 
 [sub_resource type="Animation" id="Animation_umu6i"]
@@ -72,10 +72,22 @@ tracks/0/keys = {
 "update": 1,
 "values": [36, 37, 38, 39, 40, 41, 43]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
-[sub_resource type="Animation" id="Animation_rc0bo"]
-resource_name = "walk_down"
-length = 0.4
+[sub_resource type="Animation" id="Animation_ihjip"]
+resource_name = "walk_right"
+length = 0.7
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -84,10 +96,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [12, 13]
+"values": [36, 37, 38, 39, 40, 41, 43]
 }
 
 [sub_resource type="Animation" id="Animation_ywl8u"]
@@ -167,6 +179,7 @@ script = ExtResource("1_elwdq")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1, -4)
 texture = ExtResource("1_503wi")
+flip_h = true
 hframes = 9
 vframes = 5
 

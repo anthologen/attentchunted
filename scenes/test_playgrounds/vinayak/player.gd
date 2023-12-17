@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var starting_direction : Vector2 = Vector2(0, 1)
 
 @onready var animation_tree = $AnimationTree
+@onready var sprite = $Sprite2D
 @onready var state_machine = animation_tree.get("parameters/playback")
 
 func _ready():
@@ -18,6 +19,11 @@ func _physics_process(delta):
 	)
 	
 	update_animation_parameters(input_direction)
+	
+	if (input_direction.x < 0):
+		sprite.flip_h = true
+	else:
+		sprite.flip_h = false
 	
 	velocity = input_direction * move_speed
 	
