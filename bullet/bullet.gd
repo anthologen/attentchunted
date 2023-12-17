@@ -22,3 +22,9 @@ func _process(delta):
 	#if not get_viewport_rect().has_point(position):
 	#print("deleted")
 	#queue_free()
+
+
+func _on_body_entered(_body):
+	G.player.health -= 1
+	G.player.apply_speed_debuff()
+	queue_free()

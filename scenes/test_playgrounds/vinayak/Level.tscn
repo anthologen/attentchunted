@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://o5tk6ith1nv5"]
+[gd_scene load_steps=15 format=3 uid="uid://o5tk6ith1nv5"]
 
 [ext_resource type="PackedScene" uid="uid://iy22uv6sg6r6" path="res://scenes/test_playgrounds/vinayak/player.tscn" id="1_d64q7"]
 [ext_resource type="Texture2D" uid="uid://62kw3v7ioeoq" path="res://assets/kenney_tower-defense-top-down/Tilesheet/towerDefense_tilesheet.png" id="2_uemoc"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://doy5mkwhorgfj" path="res://assets/kenney_tower-defense-top-down/PNG/Retina/towerDefense_tile132.png" id="5_ubkww"]
 [ext_resource type="Texture2D" uid="uid://dfk3nd0koi8fx" path="res://assets/kenney_tower-defense-top-down/PNG/Retina/towerDefense_tile093.png" id="6_nl05m"]
 [ext_resource type="PackedScene" uid="uid://biypiybpg31wq" path="res://enemies/lurcher.tscn" id="7_y860a"]
+[ext_resource type="PackedScene" uid="uid://cq5qvqhmatsnx" path="res://objects/health.tscn" id="8_870x4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ygfo5"]
 resource_name = "FullTileMap"
@@ -13126,7 +13127,9 @@ sources/4 = SubResource("TileSetAtlasSource_r2lut")
 
 [node name="Player" parent="." instance=ExtResource("1_d64q7")]
 position = Vector2(549, 279)
-move_speed = 200.0
+
+[node name="Node2D" parent="Player" instance=ExtResource("8_870x4")]
+position = Vector2(-532, -274)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
